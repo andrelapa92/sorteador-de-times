@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import InputForm from './components/InputForm';
+import PlayerList from './components/PlayerList';
+import TeamSorter from './components/TeamSorter';
+import PlayerManager from './services/PlayerManager';
+import { Box } from '@mui/material';
 
 function App() {
+  const [playerManager] = useState(new PlayerManager());
+  const [teamCount, setTeamCount] = useState(2); // Valor inicial de 2 times
+
+  const handleAddPlayer = (name) => {
+    playerManager.addPlayer(name);
+  };
+
+  const handleSetTeamCount = (count) => {
+    setTeamCount(count);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center', // Centraliza horizontalmente
+          alignItems: 'center',     // Centraliza verticalmente
+          minHeight: '100vh',       // Ocupa a altura total da janela
+        }}
+      >
+        <div>
+          <h1 className='title'>Sorteador de Times</h1>
+          <InputForm 
+            onAddPlayer={handleAddPlayer} 
+            onSetTeamCount={handleSetTeamCount} 
+          />
+          <PlayerList players={playerManager.getPlayers()} />
+          <TeamSorter 
+            players={playerManager.getPlayers()} 
+            teamCount={teamCount} 
+          />
+        </div>
+      </Box>
+      
     </div>
   );
 }

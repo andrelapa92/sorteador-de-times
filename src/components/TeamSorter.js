@@ -15,7 +15,7 @@ function TeamSorter({ players, teamCount }) {
 
   return (
     <div>
-      <Button onClick={handleSortTeams} variant="contained" color="primary">Sortear Times</Button>
+      <Button onClick={handleSortTeams} variant="contained" color="success">Sortear Times</Button>
       {teams && <TeamDisplay teams={teams} />}
     </div>
   );

@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.4",
     "@mui/material": "^6.1.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -18,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -37,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
+  },
+  "homepage": "https://andrelapa92.github.io/divisor-de-times"
 }

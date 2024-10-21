@@ -1,43 +1,51 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
+import { TextField, InputAdornment, IconButton, Box } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
-function InputForm({ onAddPlayer, onSetTeamCount }) {
+function InputForm({ onAddPlayer }) {
   const [name, setName] = useState('');
-  const [teamCount, setTeamCount] = useState(2); // Valor padrão: 2 times
 
   const handleAddPlayer = () => {
-    if (name) {
+    if (name.trim()) {
       onAddPlayer(name);
-      setName('');
+      setName('');  // Limpa o campo de entrada após adicionar
     }
   };
 
-  const handleTeamCountChange = (e) => {
-    const count = parseInt(e.target.value);
-    setTeamCount(count);
-    onSetTeamCount(count);
-  };
-
   return (
-    <div>
-      <input 
-        type="text" 
-        value={name} 
-        onChange={(e) => setName(e.target.value)} 
-        placeholder="Nome do jogador" 
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 2,
+        width: '100%',
+      }}
+    >
+      <TextField
+        label="Nome do jogador"
+        variant="outlined"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        fullWidth  // O campo de entrada ocupa toda a largura disponível
+        slotProps={{
+          input: {
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={handleAddPlayer}
+                  edge="end"
+                  color="primary"
+                  sx={{ height: '100%' }}  // Garante que o botão tenha a mesma altura do input
+                >
+                  <AddIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          },
+        }}
       />
-      <Button onClick={handleAddPlayer}>Adicionar jogador</Button>
-
-      <div>
-        <label>Número de times:</label>
-        <input 
-          type="number"
-          value={teamCount}
-          onChange={handleTeamCountChange}
-          min="2"
-        />
-      </div>
-    </div>
+    </Box>
   );
 }
 

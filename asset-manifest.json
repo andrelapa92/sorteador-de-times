@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/divisor-de-times/static/css/main.e6c13ad2.css",
-    "main.js": "/divisor-de-times/static/js/main.17b3dbe2.js",
-    "static/js/453.d51b9e4c.chunk.js": "/divisor-de-times/static/js/453.d51b9e4c.chunk.js",
-    "index.html": "/divisor-de-times/index.html",
-    "main.e6c13ad2.css.map": "/divisor-de-times/static/css/main.e6c13ad2.css.map",
-    "main.17b3dbe2.js.map": "/divisor-de-times/static/js/main.17b3dbe2.js.map",
-    "453.d51b9e4c.chunk.js.map": "/divisor-de-times/static/js/453.d51b9e4c.chunk.js.map"
+    "main.css": "/sorteador-de-times/static/css/main.e6c13ad2.css",
+    "main.js": "/sorteador-de-times/static/js/main.62ed0c92.js",
+    "static/js/453.d51b9e4c.chunk.js": "/sorteador-de-times/static/js/453.d51b9e4c.chunk.js",
+    "index.html": "/sorteador-de-times/index.html",
+    "main.e6c13ad2.css.map": "/sorteador-de-times/static/css/main.e6c13ad2.css.map",
+    "main.62ed0c92.js.map": "/sorteador-de-times/static/js/main.62ed0c92.js.map",
+    "453.d51b9e4c.chunk.js.map": "/sorteador-de-times/static/js/453.d51b9e4c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.17b3dbe2.js"
+    "static/js/main.62ed0c92.js"
   ]
 }

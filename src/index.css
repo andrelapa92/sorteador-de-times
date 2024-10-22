@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.title-personal {
+  margin-bottom: 0;
+}
+
+.subtitle-personal {
+  margin-top: 0;
+}

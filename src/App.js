@@ -4,6 +4,7 @@ import PlayerList from './components/PlayerList';
 import TeamSorter from './components/TeamSorter';
 import PlayerManager from './services/PlayerManager';
 import { Box } from '@mui/material';
+import Footer from './components/Footer';
 
 function App() {
   const [playerManager] = useState(new PlayerManager());
@@ -24,6 +25,7 @@ function App() {
   };
 
   return (
+    <div>
     <Box
       sx={{
         display: 'flex',
@@ -34,7 +36,8 @@ function App() {
       }}
     >
       <div>
-        <h1 className='title'>Sorteador de Times</h1>
+        <h1 className='title-personal'>Sorteador de Times</h1>
+        <p className='subtitle-personal'>(Para o vôlei dos cria)</p>
         <InputForm 
           onAddPlayer={handleAddPlayer} 
           onSetTeamCount={handleSetTeamCount} 
@@ -47,8 +50,11 @@ function App() {
           players={players} 
           teamCount={teamCount} 
         />
+
       </div>
     </Box>
+    <Footer />
+    </div>
   );
 }
 

@@ -1,16 +1,45 @@
-function PlayerList({ players }) {
-  console.log(players);
+import React from 'react';
+import { List, ListItem, ListItemAvatar, ListItemText, Avatar, IconButton } from '@mui/material';
+import FemaleIcon from '@mui/icons-material/Female';
+import MaleIcon from '@mui/icons-material/Male';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+function PlayerList({ players, onRemovePlayer }) {
   return (
     <div>
       {players.length > 0 ? (
         <div>
           <br />
-          <h2>Jogadores:</h2>
-          <ul>
-            {players.map((player, index) => (
-              <li key={index}>{player}</li>
-            ))}
-          </ul>
+          <h2>Jogadores adicionados:</h2>
+          <List variant="outlined">
+            {players.map((player, index) => {
+              const isFemale = player.isFemale; // Acessa a propriedade isFemale
+              const icon = isFemale ? <FemaleIcon /> : <MaleIcon />;
+              const bgColor = isFemale ? 'pink' : 'lightblue';
+
+              return (
+                <ListItem 
+                  key={index} 
+                  secondaryAction={
+                    <IconButton edge="end" aria-label="delete" onClick={() => onRemovePlayer(index)}>
+                      <DeleteIcon />
+                    </IconButton>
+                  }
+                >
+                  <ListItemAvatar>
+                    <Avatar 
+                      sx={{
+                        backgroundColor: bgColor, // Cor de fundo com base no gênero
+                      }}
+                    >
+                      {icon} {/* Usa o ícone baseado no gênero */}
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary={player.getName()} /> {/* Usa o método getName() */}
+                </ListItem>
+              );
+            })}
+          </List>
           <br />
         </div>
       ) : (
@@ -23,6 +52,5 @@ function PlayerList({ players }) {
     </div>
   );
 }
-  
-  export default PlayerList;
-  
+
+export default PlayerList;

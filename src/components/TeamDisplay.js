@@ -9,7 +9,7 @@ function TeamDisplay({ teams }) {
     <div>
       {teams.map((team, index) => (
         <div key={index}>
-          <h2>Time {index + 1}:</h2>
+          <h2>Time {index + 1} ({team.length} jogadores):</h2>
           <List>
             {team.map((player, playerIndex) => {
               const isFemale = player.isFemale; // Acessa a propriedade isFemale do objeto Player

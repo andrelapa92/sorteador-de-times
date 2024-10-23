@@ -10,7 +10,8 @@ function PlayerList({ players, onRemovePlayer }) {
       {players.length > 0 ? (
         <div>
           <br />
-          <h2>Jogadores adicionados:</h2>
+          {/* Título com a contagem de jogadores */}
+          <h2>Jogadores adicionados ({players.length}):</h2>
           <List variant="outlined">
             {players.map((player, index) => {
               const isFemale = player.isFemale; // Acessa a propriedade isFemale

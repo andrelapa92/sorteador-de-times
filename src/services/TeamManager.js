@@ -25,8 +25,8 @@ class TeamManager {
     // Inicializar os times como arrays vazios
     const teams = Array.from({ length: this.teamCount }, () => []);
 
-    // Função auxiliar para distribuir jogadores de forma balanceada
-    const distributePlayers = (playersList) => {
+    // Função para distribuir homens de forma crescente no índice dos times
+    const distributeMales = (playersList) => {
       let teamIndex = 0;
       playersList.forEach(player => {
         teams[teamIndex].push(player); // Adiciona o jogador no time atual
@@ -34,9 +34,18 @@ class TeamManager {
       });
     };
 
+    // Função para distribuir mulheres de forma decrescente no índice dos times
+    const distributeFemales = (playersList) => {
+      let teamIndex = this.teamCount - 1; // Começa pelo último time
+      playersList.forEach(player => {
+        teams[teamIndex].push(player); // Adiciona o jogador no time atual
+        teamIndex = (teamIndex - 1 + this.teamCount) % this.teamCount; // Retrocede para o time anterior, em forma circular
+      });
+    };
+
     // Distribuir homens e mulheres nos times
-    distributePlayers(shuffledMales);
-    distributePlayers(shuffledFemales);
+    distributeMales(shuffledMales); // Distribui os homens em ordem crescente
+    distributeFemales(shuffledFemales); // Distribui as mulheres em ordem decrescente
 
     return teams;
   }

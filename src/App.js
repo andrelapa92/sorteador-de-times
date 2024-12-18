@@ -37,7 +37,6 @@ function App() {
     >
       <div>
         <h1 className='title-personal'>Sorteador de Times</h1>
-        <p className='subtitle-personal'>(Para o vôlei dos cria)</p>
         <InputForm 
           onAddPlayer={handleAddPlayer} 
           onSetTeamCount={handleSetTeamCount} 
